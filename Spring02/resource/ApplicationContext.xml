@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+      <!-- 配置Grade 类的bean -->
+  <bean id="grade" class="cn.bdqn.bean.Grade">
+       <!-- name的属性值  默认使用DI 查询类中的setName() -->
+   <property name="name" value="1年级"/>
+  </bean>
+    <!-- 03.使用p命名空间注入   必须有set()和 无参构造函数 
+    <bean id="student" class="cn.bdqn.bean.Student" p:name="小马哥" 
+    p:age="50" p:grade-ref="grade"/>-->
+    
+    
+    <!-- 04.使用c命名空间注入 必须要有对应的带参构造  -->
+     <bean id="student" class="cn.bdqn.bean.Student" c:name="小马哥" 
+    c:age="50" c:grade-ref="grade"/>
+</beans>
